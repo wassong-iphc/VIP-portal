@@ -150,20 +150,13 @@ knowledge of the CeCILL-B license and that you accept its terms.
             </plugin>
             
             <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>gwt-maven-plugin</artifactId>
-                <version>2.5.0</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>compile</goal>
-                            <goal>test</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <hostedWebapp>${project.build.directory}/${project.build.finalName}</hostedWebapp>
-                </configuration>
+              <groupId>net.ltgt.gwt.maven</groupId>
+              <artifactId>gwt-maven-plugin</artifactId>
+              <version>1.0-rc-10</version>
+              <extensions>true</extensions>
+              <configuration>
+                <moduleName>fr.insalyon.creatis.vip.portal.Main</moduleName>
+              </configuration>
             </plugin>
             
             <plugin>
