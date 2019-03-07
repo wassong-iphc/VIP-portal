@@ -31,6 +31,7 @@
  */
 package fr.insalyon.creatis.vip.application.client.view.launch;
 
+import com.smartgwt.client.types.PickerIconName;
 import com.smartgwt.client.widgets.form.DynamicForm;
 import com.smartgwt.client.widgets.form.fields.PickerIcon;
 import com.smartgwt.client.widgets.form.fields.TextItem;
@@ -83,37 +84,41 @@ public class ListHLayout extends HLayout {
         if (optional) {
             listItem.setRequiredMessage(ApplicationConstants.INPUT_WITHOUT_VALUE_REQUIRED_MESSAGE);
         }
-        
-        PickerIcon browsePicker = new PickerIcon(PickerIcon.SEARCH, new FormItemClickHandler() {
 
-            @Override
-            public void onFormItemClick(FormItemIconClickEvent event) {
-                new PathSelectionWindow(listItem).show();
-            }
-        });
+        PickerIcon browsePicker = new PickerIcon(PickerIcon.SEARCH);
+        browsePicker.addFormItemClickHandler(
+            new FormItemClickHandler() {
+                public void onFormItemClick(FormItemIconClickEvent event) {
+                    new PathSelectionWindow(listItem).show();
+                }
+            });
         browsePicker.setPrompt("Browse on the Grid");
         
-        PickerIcon morePicker = new PickerIcon(new PickerIcon.Picker(ApplicationConstants.ICON_PICKER_MORE), new FormItemClickHandler() {
-
-            @Override
-            public void onFormItemClick(FormItemIconClickEvent event) {
-                if (optional) {
-                    parent.addMember(new ListHLayout(parent, false, "", optional));
+        PickerIcon morePicker = new PickerIcon(PickerIconName.CLEAR);
+        morePicker.setSrc(ApplicationConstants.ICON_PICKER_MORE);
+        morePicker.addFormItemClickHandler(
+            new FormItemClickHandler() {
+                @Override
+                public void onFormItemClick(FormItemIconClickEvent event) {
+                    if (optional) {
+                        parent.addMember(new ListHLayout(parent, false, "", optional));
+                    }
+                    else {
+                        parent.addMember(new ListHLayout(parent, false));
+                    }
                 }
-                else {
-                     parent.addMember(new ListHLayout(parent, false));
-                }
-            }
-        });
+            });
         morePicker.setPrompt("Add");
         
-        PickerIcon lessPicker = new PickerIcon(new PickerIcon.Picker(ApplicationConstants.ICON_PICKER_LESS), new FormItemClickHandler() {
-
-            @Override
-            public void onFormItemClick(FormItemIconClickEvent event) {
-                parent.removeMember(instance);
-            }
-        });
+        PickerIcon lessPicker = new PickerIcon(PickerIconName.CLEAR);
+        lessPicker.setSrc(ApplicationConstants.ICON_PICKER_LESS);
+        lessPicker.addFormItemClickHandler(
+            new FormItemClickHandler() {
+                @Override
+                public void onFormItemClick(FormItemIconClickEvent event) {
+                    parent.removeMember(instance);
+                }
+            });
         lessPicker.setPrompt("Remove");
         
         if (master) {
