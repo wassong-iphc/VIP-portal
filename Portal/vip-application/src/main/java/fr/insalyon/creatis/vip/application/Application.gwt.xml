@@ -43,7 +43,6 @@ knowledge of the CeCILL-B license and that you accept its terms.
         <set-property name="gwt.logging.simpleRemoteHandler" value="ENABLED" />
         <set-property name="gwt.logging.consoleHandler" value="DISABLED" />
         <set-property name="gwt.logging.developmentModeHandler" value="DISABLED" />
-        <set-property name="gwt.logging.popupHandler" value="DISABLED" />
         <set-property name="gwt.logging.systemHandler" value="DISABLED" />
 
     <!-- Servlets -->
