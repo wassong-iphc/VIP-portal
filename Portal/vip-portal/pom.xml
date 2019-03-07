@@ -44,7 +44,7 @@ knowledge of the CeCILL-B license and that you accept its terms.
     <groupId>fr.insalyon.creatis</groupId>
     <name>VIP-Portal</name>
     <artifactId>vip-portal</artifactId>
-    <packaging>war</packaging>
+    <packaging>gwt-app</packaging>
     <version>${vip.portal.version}</version>
     
     <properties>
