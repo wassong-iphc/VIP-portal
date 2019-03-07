@@ -41,6 +41,7 @@ knowledge of the CeCILL-B license and that you accept its terms.
     <name>VIP</name>
     
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <vip.core.version>1.23</vip.core.version>
         <vip.portal.version>1.23</vip.portal.version>
         <vip.application-importer.version>1.23</vip.application-importer.version>
